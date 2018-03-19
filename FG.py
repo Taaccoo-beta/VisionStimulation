@@ -5,10 +5,10 @@ from pygame.locals import *
 
 
 pygame.init()
-screen = pygame.display.set_mode((200,64))
+screen = pygame.display.set_mode((300,100),0, 32)
 
 arrayList = []
-for i in range(0,200):
+for i in range(0,300):
     arrayList.append(random.randint(0,1))
 
 LeftOrRight = True
@@ -32,7 +32,7 @@ while True:
     color = (255,255,255)
     for i,j in zip(arrayList,range(len(arrayList))):
         if i==1:
-            pygame.draw.line(screen,color,(j,0),(j,64),1)
+            pygame.draw.line(screen,color,(j,0),(j,100),1)
 
     if LeftOrRight:
         arrayList.append(arrayList[0])
@@ -40,7 +40,7 @@ while True:
     else:
         arrayList.insert(0,arrayList[-1])
         del arrayList[-1]
-    time.sleep(0.1)
+    time.sleep(0.02)
 
     pygame.display.update()
     #刷新一下画面
